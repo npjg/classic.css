@@ -14,6 +14,8 @@
 
 html,
 body {
+    -moz-user-select: none;
+    -webkit-user-select: none;
     background-image: url("img/patterns/128.png");
     background-repeat: repeat;
     margin: 0;
