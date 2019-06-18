@@ -1,0 +1,150 @@
+/* apply a natural box layout model to all elements */
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'ChicagoFLF';
+    src: url('fonts/ChicagoFLF.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+html,
+body {
+    background-color: #5C5C5C;
+    margin: 0;
+    height: 100%;
+    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
+    overflow: hidden;
+}
+
+a {
+    color: black;
+}
+
+/* Window layout */
+.content {
+    position: relative;
+    z-index: 2;
+    width: 260px;
+    margin: 100px auto 0;
+    border: 1px solid #111;
+    background: #fff;
+    box-shadow: 1px 1px #111;
+}
+.title {
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 1px 0;
+    margin: 1px 0 0 0;
+    border-bottom: 1px solid #111;
+    background-color: #f0f0f0;
+    box-shadow: inset 1px -3px 0px -2px #a8a9b6;
+}
+.title:before {
+    height: 11px;
+    width: 64px;
+    display: inline-block;
+    content: "";
+    background: url(img/lines.png) repeat;
+    margin-right: 8px;
+}
+.title:after {
+    height: 11px;
+    width: 64px;
+    display: inline-block;
+    content: "";
+    background: url(img/lines.png) repeat;
+    margin-left: 8px;
+}
+.content .icon {
+    text-align: center;
+    margin: 1em 0;
+}
+.content ul {
+    list-style-type: none;
+    margin: 2px 0 2em 0;
+    padding: 0 0 0 2em;
+    font-size: 12px;
+}
+.footer {
+    width: 400px;
+    text-align: center;
+    margin: 2em auto 0;
+    font-size: 12px;
+}
+
+.closebox {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    padding: 1px;
+    background-color: #d1d2e3;
+    border-top: 1px solid #38394a;
+    border-left: 1px solid #38394a;
+    box-shadow: 0 0 0px 1px #f0f0f0;
+}
+.closebox-innr {
+    display: block;        
+    height: 8px;
+    width: 8px;
+    background-color: #a2a5ae;
+    border-bottom: 1px solid #38394a;
+    border-right: 1px solid #38394a;
+    text-indent: -99999em;
+}
+.closebox-innr:hover {
+    background-color: #ccc;
+}
+.maxbox {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    padding: 1px;
+    background-color: #d1d2e3;
+    border-top: 1px solid #38394a;
+    border-left: 1px solid #38394a;
+    box-shadow: 0 0 0px 1px #f0f0f0;
+}
+.maxbox-innr {
+    height: 8px;
+    width: 8px;
+    background-color: #a2a5ae;
+    border-bottom: 1px solid #38394a;
+    border-right: 1px solid #38394a;
+}
+.maxbox-innr:before {
+    height: 5px;
+    width: 5px;
+    border-bottom: 1px solid #38394a;
+    border-right: 1px solid #38394a;
+    background-color: #a2a4ae;
+    display: block;
+    content: "";
+}
+
+/* Hide only visually, but have it available for screenreaders & for SEO purposes. See h5bp.com/v */
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
