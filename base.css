@@ -14,7 +14,8 @@
 
 html,
 body {
-    background-color: #5C5C5C;
+    background-image: url("img/patterns/128.png");
+    background-repeat: repeat;
     margin: 0;
     height: 100%;
     font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
