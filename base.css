@@ -21,9 +21,15 @@ body {
     margin: 0;
     height: 100%;
     font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
+    font-size: 12px;
+    font-weight: normal;
     overflow: hidden;
 }
-
+button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
 a {
     color: black;
 }
@@ -32,6 +38,8 @@ a {
 .content {
     position: relative;
     z-index: 2;
+    font-size: 12px;
+    font-weight: normal;
     width: 260px;
     margin: 100px auto 0;
     border: 1px solid #111;
@@ -40,8 +48,8 @@ a {
 }
 .title {
     text-align: center;
-    font-size: 12px;
-    font-weight: normal;
+    font-size: inherit;
+    font-weight: inherit;
     padding: 1px 0;
     margin: 1px 0 0 0;
     border-bottom: 1px solid #111;
@@ -70,7 +78,7 @@ a {
 }
 .content ul {
     list-style-type: none;
-    margin: 2px 0 2em 0;
+    margin: 2px 0 1.5em 0;
     padding: 0 0 0 2em;
     font-size: 12px;
 }
@@ -80,7 +88,6 @@ a {
     margin: 2em auto 0;
     font-size: 12px;
 }
-
 .closebox {
     position: absolute;
     top: 3px;
