@@ -136,6 +136,48 @@ a {
     display: block;
     content: "";
 }
+.content .command_button,
+.content .command_button:active {
+    height: 26px;
+    position: relative;
+    border: none;
+    margin-bottom: 7px;
+    margin-left: 14px;
+    cursor: pointer;
+}
+.content .command_button {
+    background: url(img/button/button-mid.png);
+}
+.content .command_button:before {
+    left: -7px;
+    background: url(img/button/button-front.png) no-repeat;
+}
+.content .command_button:after {
+    right: -7px;
+    background: url(img/button/button-back.png) no-repeat;
+}
+.content .command_button:active {
+    background: url(img/button/button-mid-pressed.png);
+    color: white;
+}
+.content .command_button:active:before {
+    left: -7px;
+    background: url(img/button/button-front-pressed.png) no-repeat;
+}
+.content .command_button:active:after {
+    right: -7px;
+    background: url(img/button/button-back-pressed.png) no-repeat;
+}
+.content .command_button:before,
+.content .command_button:after,
+.content .command_button:active:before,
+.content .command_button:active:after {
+    position: absolute;
+    top: 0;
+    height: 26px;
+    width: 7px;
+    content: "";
+}
 
 /* Hide only visually, but have it available for screenreaders & for SEO purposes. See h5bp.com/v */
 .visuallyhidden {
