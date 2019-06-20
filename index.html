@@ -5,6 +5,13 @@
   <title>Mac OS 8.1</title>
   <link rel="shortcut icon" href="img/favicon.ico" />
   <link rel="stylesheet" href="base.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#content" ).draggable({ handle: "h1.title" });
+  } );
+  </script>
 </head>
 <body>
   <noscript><p><em>This page requires JavaScript.</em></p></noscript>
