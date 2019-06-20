@@ -45,6 +45,8 @@ button {
 a {
     color: black;
 }
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
 
 /* Window layout */
 .content {
