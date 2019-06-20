@@ -43,7 +43,7 @@ button {
     color: inherit;
 }
 a {
-    color: black;
+    color: #000;
 }
 :focus {outline:none;}
 ::-moz-focus-inner {border:0;}
@@ -131,8 +131,8 @@ a {
 .zoom-box-inner {
     height: 6px;
     width: 7px;
-    border-bottom: 1px solid #38394a;
-    border-right: 1px solid #38394a;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
 }
 .windowshade-box.control-box {
     right: 4px;
@@ -150,7 +150,7 @@ a {
     margin-bottom: 7px;
     margin-left: 14px;
     border-radius: 3px;
-    border: 1px solid black;
+    border: 1px solid #000;
     box-shadow: var(--button-box-shadow);
 }
 .content .command_button:hover {
@@ -159,7 +159,7 @@ a {
         var(--button-hover-bezel);
 }
 .content .command_button:active {
-    color: white;
+    color: #fff;
     background-color: #666;
     box-shadow:
 	var(--button-hover-bezel),
