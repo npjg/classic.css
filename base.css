@@ -43,34 +43,30 @@ a {
     width: 260px;
     margin: 100px auto 0;
     border: 1px solid #111;
-    background: #fff;
-    box-shadow: 1px 1px #111;
+    background: #ccc;
+    box-shadow:
+	1px 2px #111,
+	inset 1px 1px 0px 0px #fff,
+	inset -1px -1px 0px 0px #999;
+}
+.content .inner {
+    margin: 2px 4px 4px 4px;
+    border: 1px solid #111;
+    background-color: #ddd;
+    box-shadow:
+	-1px -1px 0px 0px #999,
+	1px 1px 0px 0px #fff,
+	inset 1px 1px 0px 0px #fff,
+	inset -1px -1px 0px 0px #999;
 }
 .title {
+    width: 100%;
     text-align: center;
     font-size: inherit;
     font-weight: inherit;
     padding: 1px 0;
-    margin: 1px 0 0 0;
-    border-bottom: 1px solid #111;
-    background-color: #f0f0f0;
-    box-shadow: inset 1px -3px 0px -2px #a8a9b6;
-}
-.title:before {
-    height: 11px;
-    width: 64px;
-    display: inline-block;
-    content: "";
-    background: url(img/lines.png) repeat;
-    margin-right: 8px;
-}
-.title:after {
-    height: 11px;
-    width: 64px;
-    display: inline-block;
-    content: "";
-    background: url(img/lines.png) repeat;
-    margin-left: 8px;
+    background-size: 3px 2px;
+    margin: 0 0 0 0;
 }
 .content .icon {
     text-align: center;
@@ -88,53 +84,50 @@ a {
     margin: 2em auto 0;
     font-size: 12px;
 }
-.closebox {
+.control-box {
     position: absolute;
     top: 3px;
-    left: 10px;
     padding: 1px;
-    background-color: #d1d2e3;
-    border-top: 1px solid #38394a;
-    border-left: 1px solid #38394a;
-    box-shadow: 0 0 0px 1px #f0f0f0;
+    background-color: #222;
+    box-shadow:
+	inset -1px -1px 0px 0px #fff,
+	inset 1px 1px 0px 0px #888;
 }
-.closebox-innr {
+.close-box.control-box {
+    left: 4px;
+}
+.control-box-inner {
     display: block;        
-    height: 8px;
-    width: 8px;
-    background-color: #a2a5ae;
-    border-bottom: 1px solid #38394a;
-    border-right: 1px solid #38394a;
+    height: 12px;
+    width: 12px;
+    background-image:
+	linear-gradient(to bottom right, #999, #aaa, #bbb, #ccc, #ddd, #eee, #fff);
+    border: 1px solid #222;
+    box-shadow:
+	inset 1px 1px 0px 0px #ccc,
+	inset -1px -1px 0px 0px #888;
     text-indent: -99999em;
 }
-.closebox-innr:hover {
-    background-color: #ccc;
+.control-box-inner:active {
+    box-shadow: none;
 }
-.maxbox {
-    position: absolute;
-    top: 3px;
-    right: 10px;
-    padding: 1px;
-    background-color: #d1d2e3;
-    border-top: 1px solid #38394a;
-    border-left: 1px solid #38394a;
-    box-shadow: 0 0 0px 1px #f0f0f0;
+.zoom-box.control-box {
+    right: 20px;
 }
-.maxbox-innr {
-    height: 8px;
-    width: 8px;
-    background-color: #a2a5ae;
+.zoom-box-inner {
+    height: 6px;
+    width: 7px;
     border-bottom: 1px solid #38394a;
     border-right: 1px solid #38394a;
 }
-.maxbox-innr:before {
-    height: 5px;
-    width: 5px;
-    border-bottom: 1px solid #38394a;
-    border-right: 1px solid #38394a;
-    background-color: #a2a4ae;
-    display: block;
-    content: "";
+.windowshade-box.control-box {
+    right: 4px;
+}
+.windowshade-box-inner {
+    margin-top: 3px;
+    height: 3px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
 .content .command_button,
 .content .command_button:active {
