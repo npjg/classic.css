@@ -3,7 +3,7 @@ A UI framework using native CSS/JS replications of the Mac OS 8.1 interface comp
 
 ## Acknowledgements
  - New Dawn by [`Nathanael Gentry`](https://github.com/npjg)
- - Scrollbars of the Classic Mac OS by [`Jessica Stokes (@ticky)`](https://github.com/ticky).
+ - Scrollbars of the Classic Mac OS by [`Jessica Stokes (@ticky)`](https://github.com/ticky)
  - `after-dark-css`, for the basic System 7.1.1 interface
  - [`flyer`](https://www.masswerk.at/flyer/), for further inspiration
  - Robin Casady, for releasing ChicagoFLF into the public domain
