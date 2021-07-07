@@ -65,9 +65,7 @@ ul.menu {
 }
 
 .content {
-  position: absolute;
   width: 50%;
-  overflow: hidden;
 }
 
 .control-box {
@@ -476,8 +474,6 @@ ul.menu {
   color: #fff;
 }
 
-
-
 #nav-wrapper ul {
   font-size: 1.25rem;
 }
@@ -491,9 +487,52 @@ ul.menu {
   border-radius: 0 !important;
 }
 
-#about {
-  margin: 0 auto;
-  left: 25%;
-  top: 20%;
-  width: 40vw%;
+::-webkit-scrollbar {
+  margin-bottom: 100px;
+}
+
+.ui-draggable-dragging, .ui-resizable-resizing {
+  transform: scale(1);
+  border: 2px black dotted !important;
+  background-color: rgba(25, 25, 25, 0) !important;
+}
+
+.ui-draggable-dragging *, .ui-resizable-resizing * {
+  opacity: 0;
+}
+
+.ui-draggable-dragging.content, .ui-resizable-resizing.content {
+  box-shadow: none !important;
+}
+ 
+.ui-resizable-handle {
+  background: url("../img/corner.png");
+}
+
+.ui-resizable-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 21px;
+  height: 21px;
+}
+
+div.content .inner {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+
+#boot {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  z-index: 99999999;
+  position: absolute;
+}
+
+#boot-button {
+  left: 50%;
+  position: relative;
+  top: 50%;
 }
