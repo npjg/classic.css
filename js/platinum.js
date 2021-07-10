@@ -46,12 +46,17 @@ jQuery(function () {
             start: function () {
                 jQuery(".content").css("z-index", "1100");
                 jQuery(this).css("z-index", "1200");
+                jQuery("#sound_move_stop").trigger("play");
+            },
+            stop: function (event, ui) {
+                jQuery("#sound_move_stop").trigger("play");
             },
         });
 
         // Make windowds resiable
-        jQuery(".resizable").resizable({
+        jQuery(".resizable .inner").resizable({
             handles: "se",
+            alsoResize: $(this).parent('div.content'),
             stop: function (event, ui) {
                 jQuery("#sound_move_stop").trigger("play");
             },
@@ -61,9 +66,15 @@ jQuery(function () {
         jQuery(".zoom-box").on("click", function () {
             b = this.closest(".content");
             isMax = jQuery(this).data("max");
-
+            i = jQuery(b).children('.inner')
+            console.log(i)
             if (!isMax) {
                 jQuery(b)
+                    .css("width", "99%")
+                    .css("height", "95%")
+                    .css("left", ".5rem")
+                    .css("top", "2.5rem");
+                jQuery(i)
                     .css("width", "99%")
                     .css("height", "95%")
                     .css("left", ".5rem")
@@ -80,27 +91,29 @@ jQuery(function () {
             } else {
                 jQuery(b).removeAttr("style");
                 jQuery("#sound_windowshade_collapse").trigger("play");
-
+                jQuery(i).removeAttr("style");
                 jQuery(this).data("max", false);
             }
         });
 
         // Windowshade Box -- Minimize the window to just the title bar
         jQuery(".windowshade-box").on("click", function () {
-            c = jQuery(this).closest(".content");
-            c.css("z-index", "1");
-            d = jQuery(this).data("shade");
-            e = jQuery(this).data("shade-height", jQuery(this).css("height"));
-            if (!d) {
-                jQuery(c).children(".inner").addClass("hidden");
-                jQuery(c).css("height", "");
-                jQuery(this).data("shade", true);
-                jQuery("#sound_windowshade_collapse").trigger("play");
-            } else {
-                jQuery(c).children(".inner").removeClass("hidden");
-                jQuery(c).css("height", e);
-                jQuery(this).data("shade", false);
+            let contentBox = jQuery(this).closest(".content");
+            contentBox.css("z-index", "1");
+            let shadeHeight = jQuery(this).data("shade-height", jQuery(this).css("height"));
+            if (jQuery(this).hasClass("shade")) {
+                jQuery(contentBox).removeClass("hidden-window");
+                jQuery(contentBox).children("div.inner").first().children(".ui-resizable-handle").first().removeClass("hidden");
+                jQuery(contentBox).css("height", shadeHeight);
+                jQuery(this).removeClass("shade");
                 jQuery("#sound_windowshade_expand").trigger("play");
+            } else {
+                jQuery(contentBox).addClass("hidden-window");
+                jQuery(contentBox).css("min-height", "0px");
+                jQuery(contentBox).children("div.inner").first().children(".ui-resizable-handle").first().addClass("hidden");
+                jQuery(contentBox).css("height", "");
+                jQuery(this).addClass("shade");
+                jQuery("#sound_windowshade_collapse").trigger("play");
             }
         });
 
@@ -139,16 +152,19 @@ jQuery(function () {
             jQuery(this).children().show();
         });
 
-        jQuery("#nav-list li").on("mouseleave", function () {
+        jQuery("#nav-list li").on("mouseleave click touch", function () {
             jQuery(this).children("ul").hide();
         });
 
         // Enable menu items to be clickable by default and open a windows/app with the same name
         jQuery("#nav-list li ul li").on("click", function () {
-            jQuery("#sound_open").trigger("play");
-            jQuery("#" + jQuery(this).get(0).id.split("-")[1])
-                .removeClass("hidden")
-                .css("z-index", "9000");
+            console.log()
+            if (!jQuery(this).hasClass('disabled')){
+                jQuery("#sound_open").trigger("play");
+                jQuery("#" + jQuery(this).get(0).id.split("-")[1])
+                    .removeClass("hidden")
+                    .css("z-index", "9000");
+            }
         });
     });
 });

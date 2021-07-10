@@ -49,12 +49,11 @@ ul.menu {
   left: 4px;
 }
 
-.content .command_button {
+.content button {
   height: 22px;
 }
 
 .content .inner {
-  height: 97%;
   margin: 2px 4px 4px;
   padding: 1em;
 }
@@ -65,7 +64,7 @@ ul.menu {
 }
 
 .content {
-  width: 50%;
+  position: absolute;
 }
 
 .control-box {
@@ -87,6 +86,13 @@ ul.menu {
 
 .hidden {
   display: none !important;
+}
+
+.hidden-window {
+  height: 23px !important;
+  overflow: hidden !important;
+  min-width: 0px;
+  min-height: 0px;
 }
 
 .icon img {
@@ -355,20 +361,20 @@ ul.menu {
   list-style-type: none;
 }
 
-.content .command_button {
+.content button {
   background-color: #dedede;
   border: 1px solid #000;
   border-radius: 3px;
   box-shadow: var(--button-box-shadow);
 }
 
-.content .command_button:active {
+.content button:active {
   background-color: #666;
   box-shadow: var(--button-hover-bezel), inset -1px -1px 0 0 #888, inset -2px -2px 0 0 #777, inset 1px 1px 0 0 #444, inset 2px 2px 0 0 #555;
   color: #fff;
 }
 
-.content .command_button:hover {
+.content button:hover {
   box-shadow: var(--button-box-shadow), var(--button-hover-bezel);
 }
 
@@ -453,12 +459,9 @@ ul.menu {
   border-right: 1px solid #000;
 }
 
-#apple-logo::before {
-  content: "\F8FF";
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+#apple-logo img {
+  margin-top: -2px;
 }
-
 #nav-list #time:hover {
   background-color: inherit;
   color: inherit;
@@ -467,6 +470,14 @@ ul.menu {
 #nav-wrapper ul li:hover {
   background-color: #339;
   color: #fff;
+}
+
+#nav-list ul > li.disabled {
+  padding-left: 1em !important;
+}
+
+#nav-wrapper ul li.disabled {
+  color: #777;
 }
 
 #nav-wrapper ul li.disabled:hover {
@@ -491,13 +502,13 @@ ul.menu {
   margin-bottom: 100px;
 }
 
-.ui-draggable-dragging, .ui-resizable-resizing {
+.ui-draggable-dragging {
   transform: scale(1);
   border: 2px black dotted !important;
   background-color: rgba(25, 25, 25, 0) !important;
 }
 
-.ui-draggable-dragging *, .ui-resizable-resizing * {
+.ui-draggable-dragging * {
   opacity: 0;
 }
 
@@ -522,6 +533,13 @@ div.content .inner {
   overflow-y: scroll;
 }
 
+div.content.noscroll .inner {
+  overflow: hidden;
+}
+
+.text-center {
+  text-align: center;
+}
 
 #boot {
   height: 100%;
@@ -535,4 +553,31 @@ div.content .inner {
   left: 50%;
   position: relative;
   top: 50%;
+}
+
+#controls {
+  width: 25%;
+}
+
+#controls input {
+  width: 2em;
+}
+
+#controls {
+  left: 70%;
+}
+
+.content, .content .inner {
+  max-height: 100%;
+  max-width: 100%;
+  min-height: 80px;
+  min-width: 100px;
+}
+#about .inner {
+  left: 20px;
+  top: 30px;
+}
+#about .inner {
+  width: 700px; 
+  height: 500px;
 }
