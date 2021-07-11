@@ -5,8 +5,6 @@
         <title>Mac OS 8.1</title>
         <link rel="shortcut icon" href="img/favicon.ico" />
         <link rel="stylesheet" href="css/platinum.css" />
-        <link rel="stylesheet" href="css/charcoal.css" />
-        <link rel="stylesheet" href="css/chicagoflf.css" />
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -35,14 +33,13 @@
                     <li>
                         File
                         <ul class="menu command_button">
-                            <li id="menu-play">
-                                <img src="img/tv.png" width="16" alt="Play" />
+                            <li id="menu-play" class="disabled">
                                 Play
                             </li>
                             <hr />
-                            <li id="menu-controls">
-                                <img src="img/controls.png" width="16" alt="Controls" />
-                                Controls
+                            <li id="menu-errorWindow">
+                                <img src="img/bomb.png" width="16" alt="Controls" />
+                                Cause an error
                             </li>
                         </ul>
                     </li>
@@ -159,7 +156,20 @@
                 </div>
             </div>
         </div>
-        <audio controls id="sound_boot" class="handsoff hidden" preload="auto">
+
+        <div id="errorWindow" class="alert alert-stop content noscroll text-center hidden" style="width: 20%">
+            <div class="inner">
+            <p style="font-weight: normal;">This is a keyboard layout.
+            </p><br><p>
+            With this item you can use the Keyboard control panel to choose a different layout of characters on your keyboard. To function properly this file must be located in the "System" file.
+            </p>
+            <button class="command_button right-button close-button">
+                OK
+            </button>
+
+            </div>
+        </div>
+       <audio controls id="sound_boot" class="handsoff hidden" preload="auto">
             <source src="rsrc/boot.mp3" type="audio/mpeg" />
             Your browser does not support the HTML audio element.
         </audio>
