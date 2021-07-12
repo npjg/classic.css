@@ -24,37 +24,37 @@ ul.menu {
     width: 1.25rem;
 }
 
-#nav-list #time,
-#nav-list #macoslogo {
+.nav-list #time,
+.nav-list #macoslogo {
     float: right;
 }
 
-#nav-list li {
+.nav-list li {
     float: left;
     height: 1.75rem;
     line-height: 1.5rem;
     padding: 0.25rem 0.5rem 0;
 }
 
-#nav-list li:hover ul.menu li img {
+.nav-list li:hover ul.menu li img {
     margin-left: -1.25em;
     margin-right: 0.25em;
 }
 
-#nav-list li:hover ul.menu li {
+.nav-list li:hover ul.menu li {
     clear: both;
     padding: 0.25em 1em 1.5em 2em;
     width: 100%;
 }
 
-#nav-list {
+.nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative;
 }
 
-#nav-wrapper {
+.nav-wrapper {
     background-color: #ddd;
     border-radius: 1em 1em 0 0;
     box-shadow: inset 1px 1px 0 0 #888, inset -1px -1px 0 0 #fff;
@@ -64,29 +64,33 @@ ul.menu {
     width: 100%;
 }
 
-#nav-list #time:hover {
+.nav-list #time:hover {
     background-color: inherit;
     color: inherit;
 }
 
-#nav-wrapper ul li:hover {
+.nav-wrapper ul li:hover {
     background-color: #339;
     color: #fff;
 }
 
-#nav-list ul > li.disabled {
+.nav-list ul > li.noimg {
     padding-left: 1em !important;
 }
 
-#nav-wrapper ul li.disabled {
+.nav-wrapper ul li.disabled {
     color: #777;
 }
 
-#nav-wrapper ul li.disabled:hover {
+.nav-wrapper ul li.disabled:hover {
     background-color: #777;
     color: #fff;
 }
 
-#nav-wrapper ul {
+.nav-wrapper ul {
     font-size: 1.25rem;
+}
+
+#app-menu {
+    right: 0;
 }
