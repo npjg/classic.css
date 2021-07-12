@@ -2,7 +2,7 @@
 A UI framework using native CSS/JS replications of the Mac OS 8.1 interface components. The project is named after the interface theme that came with MacOS 8 and 9, Platinum.
 
 ## Demo
-[`See a demo here!`] (https://robbiebyrd.github.io/platinum/)
+[`See a demo here!`](https://robbiebyrd.github.io/platinum/)
 
 ## Acknowledgements
  - New Dawn by [`Nathanael Gentry`](https://github.com/npjg)
