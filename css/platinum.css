@@ -36,9 +36,6 @@ body {
     height: 22px;
 }
 
-.close-button {
-  height: 100px;
-}
 
 .right-button {
   float: right;
@@ -97,7 +94,7 @@ body {
     margin-left: 10em;
 }
 
-.title ::after {
+.titlebar ::after {
     float: right;
     position: absolute;
     right: 0;
@@ -105,36 +102,36 @@ body {
     width: 3.5rem;
 }
 
-.title.noleft ::before {
+.titlebar.noleft ::before {
   width: 0.5rem;
 }
 
-.title.noright ::after {
+.titlebar.noright ::after {
     width: 0.5rem;
 }
 
-.title.halfright ::after {
+.titlebar.halfright ::after {
     width: 1.75rem;
 }
 
-.title ::before {
+.titlebar ::before {
     float: left;
     margin: 0;
     width: 2rem;
 }
 
-.title ::before,
-.title ::after {
+.titlebar ::before,
+.titlebar ::after {
     content: "\00a0";
     display: block;
 }
 
-.title span {
+.titlebar span {
     padding: 0 1rem;
     margin-left: -2rem;
 }
 
-.title {
+.titlebar {
     margin: 0;
 }
 
@@ -149,12 +146,12 @@ body {
     width: 1px;
 }
 
-.windowshade-box-inner {
+.window-collapse-inner {
     height: 3px;
     margin-top: 3px;
 }
 
-.windowshade-box.control-box {
+.window-collapse.control-box {
     right: 4px;
 }
 
@@ -294,17 +291,17 @@ body {
     box-shadow: none;
 }
 
-.title ::before,
-.title ::after {
+.titlebar ::before,
+.titlebar ::after {
     background-color: #ccc;
 }
 
-.title span {
+.titlebar span {
     background-color: #ccc;
     background-image: none;
 }
 
-.title {
+.titlebar {
     background-image: url("../img/title-stripe-center.jpg");
     background-position: 10% 60%;
     background-repeat: repeat-x;
@@ -313,21 +310,7 @@ body {
     text-align: center;
 }
 
-.title-full {
-    background-position: 10% 10% !important;
-}
-
-.title-full span {
-    padding: 0 1.5rem;
-}
-
-.title-full ::before,
-.title-full ::after {
-    content: "";
-    display: block;
-}
-
-.windowshade-box-inner {
+.window-collapse-inner {
     border-bottom: 1px solid #000;
     border-top: 1px solid #000;
 }
@@ -343,11 +326,6 @@ body {
 
 .text-italic {
     font-style: italic;
-}
-
-.modal {
-    background: #ccc !important;
-    border-radius: 0 !important;
 }
 
 .ui-draggable-dragging {
@@ -390,18 +368,20 @@ div.content.noscroll .inner {
     text-align: center;
 }
 
-#boot {
+.modal {
     height: 100%;
     width: 100%;
     background: #000;
     z-index: 99999999;
     position: absolute;
+    border-radius: 0 !important;
 }
 
 #boot-button {
     left: 50%;
     position: relative;
     top: 50%;
+    height: 100px;
 }
 
 #controls {
@@ -456,4 +436,14 @@ div.content.noscroll .inner {
 
 .alert-stop .inner {
   background-image: url(../img/alert_stop.png);
+}
+
+#sadmac {
+    text-align: center;
+    padding: 15%;
+    z-index: 99999 !important;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0;
 }
