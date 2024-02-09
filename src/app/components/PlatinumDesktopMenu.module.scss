@@ -1,0 +1,67 @@
+.platinumDesktopMenuBar {
+  background: var(--color-black);
+  z-index: 500;
+}
+
+.platinumDesktopMenu {
+  user-select: none;
+  user-drag: none;
+  width: 100%;
+  margin: 0;
+  list-style: none;
+  box-shadow: inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-05), calc(var(--window-border-size) * 2) calc(var(--window-border-size) * 2) 0 0 var(--color-black);
+  background-color: var(--color-02) !important;
+  border-radius: var(--window-control-size) var(--window-control-size) 0 0;
+  display: inline-block;
+  padding: 0 var(--window-control-size);
+  z-index: 500;
+
+  li {
+    &:after {
+      display: none !important;
+    }
+
+    p {
+      padding: 0 !important;
+    }
+  }
+
+}
+
+.platinumDesktopMenuAppleMenu {
+  margin-left: var(--window-control-size);
+
+  &:after {
+    display: none !important;
+    content: "";
+  }
+
+}
+
+.platinumDesktopMenuAppSwitcher {
+  margin-right: var(--window-control-size);
+  float: right;
+  margin-left: 0;
+
+  &:after {
+    display: none !important;
+    content: "";
+  }
+
+  * {
+    ul {
+      right: calc(var(--window-control-size) * 2) !important;
+    }
+  }
+
+}
+
+.platinumDesktopMenuTime {
+  margin: 0 var(--window-control-size);
+  float: right;
+
+  &:hover {
+    background: transparent !important;
+    color: var(--color-black) !important;
+  }
+}

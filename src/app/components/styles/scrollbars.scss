@@ -1,0 +1,292 @@
+@mixin scrollbars($window-scrollbar-size) {
+  ::-webkit-scrollbar {
+    width: $window-scrollbar-size;
+    height: $window-scrollbar-size;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical, ::-webkit-scrollbar-button:start:horizontal {
+    display: block;
+    top: 16px;
+    background-color: #dedede;
+    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #bcbcbc;
+    width: $window-scrollbar-size;
+    height: $window-scrollbar-size;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical:decrement {
+    background: linear-gradient(transparent 75%, #000 0) 50%/8px 4px no-repeat,
+    linear-gradient(transparent 50%, #000 0) 50%/6px 4px no-repeat,
+    linear-gradient(transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(#000 50%, #000 0) 50%/2px 4px no-repeat, #dedede;
+    width: $window-scrollbar-size;
+    height: $window-scrollbar-size;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical:decrement:active {
+    background: linear-gradient(transparent 75%, #000 0) 50%/8px 4px no-repeat,
+    linear-gradient(transparent 50%, #000 0) 50%/6px 4px no-repeat,
+    linear-gradient(transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(#000 50%, #000 0) 50%/2px 4px no-repeat, #444;
+    box-shadow: inset 1px 1px 0 #333, inset -1px -1px 0 #111;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical:increment {
+    background: linear-gradient(0deg, transparent 75%, #000 0) 50%/8px 4px no-repeat,
+    linear-gradient(0deg, transparent 50%, #000 0) 50%/6px 4px no-repeat,
+    linear-gradient(0deg, transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(0deg, #000 50%, #000 0) 50%/2px 4px no-repeat, #dedede;
+    border-bottom: none;
+    width: $window-scrollbar-size;
+    height: $window-scrollbar-size;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical:increment:active {
+    background: linear-gradient(0deg, transparent 75%, #000 0) 50%/8px 4px no-repeat,
+    linear-gradient(0deg, transparent 50%, #000 0) 50%/6px 4px no-repeat,
+    linear-gradient(0deg, transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(#000 50%, #000 0) 50%/2px 4px no-repeat, #444;
+    box-shadow: inset 1px 1px 0 #333, inset -1px -1px 0 #111;
+  }
+
+
+  ::-webkit-scrollbar-button:start:horizontal {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+
+  ::-webkit-scrollbar-button:start:horizontal:decrement {
+    background: linear-gradient(90deg, transparent 75%, #000 0) 50%/4px 8px no-repeat,
+    linear-gradient(90deg, transparent 50%, #000 0) 50%/4px 6px no-repeat,
+    linear-gradient(90deg, transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(90deg, #000 50%, #000 0) 50%/4px 2px no-repeat, #dedede;
+    width: $window-scrollbar-size;
+    height: $window-scrollbar-size;
+  }
+
+  ::-webkit-scrollbar-button:start:horizontal:decrement:active {
+    background: linear-gradient(90deg, transparent 75%, #000 0) 50%/4px 8px no-repeat,
+    linear-gradient(90deg, transparent 50%, #000 0) 50%/4px 6px no-repeat,
+    linear-gradient(90deg, transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(#000 50%, #000 0) 50%/2px 4px no-repeat, #444;
+    box-shadow: inset 1px 1px 0 #333, inset -1px -1px 0 #111;
+  }
+
+
+  ::-webkit-scrollbar-button:start:horizontal:increment {
+    background: linear-gradient(270deg, transparent 75%, #000 0) 50%/4px 8px no-repeat,
+    linear-gradient(270deg, transparent 50%, #000 0) 50%/4px 6px no-repeat,
+    linear-gradient(270deg, transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(270deg, #000 50%, #000 0) 50%/4px 2px no-repeat, #dedede;
+    border-right: none;
+    width: $window-scrollbar-size;
+    height: $window-scrollbar-size;
+  }
+
+  ::-webkit-scrollbar-button:start:horizontal:increment:active {
+    background: linear-gradient(270deg, transparent 75%, #000 0) 50%/4px 8px no-repeat,
+    linear-gradient(270deg, transparent 50%, #000 0) 50%/4px 6px no-repeat,
+    linear-gradient(270deg, transparent 25%, #000 0) 50%/4px 4px no-repeat,
+    linear-gradient(#000 50%, #000 0) 50%/2px 4px no-repeat, #444;
+    box-shadow: inset 1px 1px 0 #333, inset -1px -1px 0 #111;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #aaaaab;
+    border: 1px solid #000;
+  }
+
+  ::-webkit-scrollbar-track:vertical {
+    box-shadow: inset 1px 1px 0 #787877, inset -1px 2px 0 #cdcccd,
+    inset 2px 0 0 #888889, inset -2px 0 0 #bcbcbc;
+  }
+
+  ::-webkit-scrollbar-track:horizontal {
+    box-shadow: inset 1px 1px 0 #787877, inset 2px -1px 0 #cdcccd,
+    inset 0 2px 0 #888889, inset 0 -2px 0 #bcbcbc;
+  }
+
+  ::-webkit-scrollbar-corner {
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    box-shadow: inset 1px 1px 0 #fff;
+    background: #cdcccd;
+  }
+
+  ::-webkit-scrollbar {
+    margin-bottom: 100px;
+  }
+}
+
+@mixin scrollbars-inactive() {
+  ::-webkit-scrollbar-button:start:vertical, ::-webkit-scrollbar-button:start:horizontal {
+    background-color: #dedede;
+    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #bcbcbc;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical {
+    background: #dedede !important;
+    border: none !important;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical:decrement {
+    background: #dedede !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  ::-webkit-scrollbar-button:start:vertical:increment {
+    background: #dedede !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+
+  ::-webkit-scrollbar-button:start:horizontal {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  ::-webkit-scrollbar-button:start:horizontal:decrement {
+    background: #dedede !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+
+  ::-webkit-scrollbar-button:start:horizontal:increment {
+    background: #dedede !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #dedede !important;
+    border: 1px solid #787877 !important;
+  }
+
+  ::-webkit-scrollbar-track:vertical {
+    box-shadow: none !important;
+  }
+
+  ::-webkit-scrollbar-track:horizontal {
+    box-shadow: none !important;
+  }
+
+  ::-webkit-scrollbar-corner {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
+
+}
+
+@mixin scrollbars-themed(
+  $scrollbar-thumb-inset-color,
+  $scrollbar-thumb-outset-color,
+  $scrollbar-thumb-color,
+  $scrollbar-thumb-highlight-color,
+  $scrollbar-thumb-shadow-color,
+  $scrollbar-thumb-border-color,
+  $scrollbar-thumb-border-size,
+  $scrollbar-thumb-width,
+  $scrollbar-thumb-height) {
+
+  ::-webkit-scrollbar-thumb {
+    width: $scrollbar-thumb-width;
+    height: $scrollbar-thumb-height;
+    border: $scrollbar-thumb-border-size solid $scrollbar-thumb-border-color;
+    box-shadow: inset $scrollbar-thumb-border-size $scrollbar-thumb-border-size 0 $scrollbar-thumb-inset-color, inset calc($scrollbar-thumb-border-size * -1) calc($scrollbar-thumb-border-size * -1) 0 $scrollbar-thumb-outset-color !important;
+  }
+
+  ::-webkit-scrollbar-thumb:vertical {
+    background: linear-gradient(
+                    transparent 12.5%,
+                    $scrollbar-thumb-shadow-color 0,
+                    $scrollbar-thumb-shadow-color 25%,
+                    transparent 0,
+                    transparent 37.5%,
+                    $scrollbar-thumb-shadow-color 0,
+                    $scrollbar-thumb-shadow-color 50%,
+                    transparent 0,
+                    transparent 62.5%,
+                    $scrollbar-thumb-shadow-color 0,
+                    $scrollbar-thumb-shadow-color 75%,
+                    transparent 0,
+                    transparent 87.5%,
+                    $scrollbar-thumb-shadow-color 0
+    ) 50%/7px 8px no-repeat,
+    linear-gradient(
+                    $scrollbar-thumb-highlight-color 12.5%,
+                    transparent 0,
+                    transparent 25%,
+                    $scrollbar-thumb-highlight-color 0,
+                    $scrollbar-thumb-highlight-color 37.5%,
+                    transparent 0,
+                    transparent 50%,
+                    $scrollbar-thumb-highlight-color 0,
+                    $scrollbar-thumb-highlight-color 62.5%,
+                    transparent 0,
+                    transparent 75%,
+                    $scrollbar-thumb-highlight-color 0,
+                    $scrollbar-thumb-highlight-color 87.5%,
+                    transparent 0
+    ) 49%/7px 8px no-repeat,
+    $scrollbar-thumb-color;
+  }
+
+  ::-webkit-scrollbar-thumb:horizontal {
+    background: linear-gradient(
+                    90deg,
+                    transparent 12.5%,
+                    $scrollbar-thumb-shadow-color 0,
+                    $scrollbar-thumb-shadow-color 25%,
+                    transparent 0,
+                    transparent 37.5%,
+                    $scrollbar-thumb-shadow-color 0,
+                    $scrollbar-thumb-shadow-color 50%,
+                    transparent 0,
+                    transparent 62.5%,
+                    $scrollbar-thumb-shadow-color 0,
+                    $scrollbar-thumb-shadow-color 75%,
+                    transparent 0,
+                    transparent 87.5%,
+                    $scrollbar-thumb-shadow-color 0
+    ) 50%/8px 7px no-repeat,
+    linear-gradient(
+                    90deg,
+                    $scrollbar-thumb-highlight-color 12.5%,
+                    transparent 0,
+                    transparent 25%,
+                    $scrollbar-thumb-highlight-color 0,
+                    $scrollbar-thumb-highlight-color 37.5%,
+                    transparent 0,
+                    transparent 50%,
+                    $scrollbar-thumb-highlight-color 0,
+                    $scrollbar-thumb-highlight-color 62.5%,
+                    transparent 0,
+                    transparent 75%,
+                    $scrollbar-thumb-highlight-color 0,
+                    $scrollbar-thumb-highlight-color 87.5%,
+                    transparent 0
+    ) center 49%/8px 7px no-repeat,
+    $scrollbar-thumb-color;
+  }
+}

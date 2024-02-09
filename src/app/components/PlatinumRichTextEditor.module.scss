@@ -1,0 +1,29 @@
+.platinumRichTextEditor {
+  display: inline;
+  width: 100%;
+
+  div {
+    height: auto;
+    outline: none;
+  }
+
+  div[role=toolbar] {
+    background: var(--color-02);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+
+    div {
+      display: flex;
+      flex-direction: row;
+    }
+
+  }
+
+  .prose {
+    font-family: "AppleGaramond", serif;
+  }
+}

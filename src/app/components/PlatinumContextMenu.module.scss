@@ -1,0 +1,10 @@
+.platinumContextMenuWrapper {
+  position: fixed;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-05), calc(var(--window-border-size) * 2) calc(var(--window-border-size) * 2) 0 0 var(--color-black);
+  background-color: var(--color-02);
+  z-index: 900;
+}
+

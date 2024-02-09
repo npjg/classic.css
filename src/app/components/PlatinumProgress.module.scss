@@ -1,0 +1,34 @@
+@use "./styles/appearance";
+@use 'sass:list';
+
+.platinumProgress {
+  progress[value] {
+    background: var(--theme-color-03) !important;
+
+    &::-webkit-progress-bar {
+      background: var(--color-04);
+      @include appearance.platinumWindowInnerBorder;
+    }
+
+    &::-webkit-progress-value {
+      background: linear-gradient(
+                      to bottom,
+                      var(--theme-color-07),
+                      var(--theme-color-06),
+                      var(--theme-color-05),
+                      var(--theme-color-04),
+                      var(--theme-color-03),
+                      var(--theme-color-02),
+                      var(--theme-color-01),
+                      var(--color-white),
+                      var(--theme-color-01),
+                      var(--theme-color-02),
+                      var(--theme-color-03),
+                      var(--theme-color-04),
+                      var(--theme-color-05),
+                      var(--theme-color-06),
+                      var(--theme-color-07),
+      ) !important;
+    }
+  }
+}

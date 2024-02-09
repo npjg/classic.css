@@ -1,0 +1,232 @@
+@use "./styles/appearance";
+@use "./styles/assets";
+@use "sass:list";
+
+@function encodecolor($string) {
+  @if type-of($string) == 'color' {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote("#{$hex}");
+  }
+  $string: '%23' + $string;
+  @return $string;
+}
+
+@mixin theme-halftone($appearanceColors, $colorNumber: 6) {
+  $thisColor: encodecolor(list.nth($appearanceColors, $colorNumber));
+  background-image: url('data:image/svg+xml,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2.8 2.8" xml:space="preserve"><path fill="' + $thisColor + '" d="M1,1.2H0.5C0.3,1.2,0.2,1.2,0.2,1V0.5c0-0.1,0.1-0.2,0.2-0.2H1c0.1,0,0.2,0.1,0.2,0.2V1C1.2,1.2,1.2,1.2,1,1.2z"/><path fill="' + $thisColor + '" d="M2.3,2.5H1.7c-0.1,0-0.2-0.1-0.2-0.2V1.7c0-0.1,0.1-0.2,0.2-0.2h0.6c0.1,0,0.2,0.1,0.2,0.2v0.6C2.5,2.4,2.4,2.5,2.3,2.5z"/></svg>') !important;
+  background-repeat: repeat;
+  background-size: 5%;
+}
+
+.platinumDesktopIcon {
+  position: absolute;
+  display: inline-block;
+  z-index: 10 !important;
+  user-select: none;
+  text-align: center;
+  max-width: calc(var(--desktop-icon-size) * 2);
+
+  img {
+    width: var(--desktop-icon-size);
+    height: var(--desktop-icon-size);
+    margin: auto;
+    user-select: none;
+    user-drag: none;
+    -webkit-user-drag: none;
+  }
+
+  p {
+    padding: calc(var(--desktop-icon-font-size) / 4) 0;
+    margin-top: calc(var(--desktop-icon-font-size) / 4);
+    background: rgba(255, 255, 255, .5);
+    color: black;
+    font-family: var(--ui-font), serif;
+    font-size: var(--desktop-icon-font-size);
+  }
+}
+
+.platinumDesktopIconDragging {
+  z-index: 500 !important;
+  user-select: none;
+  padding: calc(var(--desktop-icon-size) * 4);
+  margin: calc(var(--desktop-icon-size) * -4);
+}
+
+.platinumDesktopIconMask {
+  width: calc(var(--desktop-icon-size) - var(--window-border-size) * 2);
+  height: calc(var(--desktop-icon-size) - var(--window-border-size) * 2);
+  margin: 0 auto;
+  mask-mode: alpha !important;
+  mask-size: calc(100% - var(--window-border-size)) !important;
+  mask-repeat: no-repeat !important;
+}
+
+.platinumDesktopIconMaskOuter {
+  width: calc(var(--desktop-icon-size) + var(--window-border-size));
+  height: calc(var(--desktop-icon-size) + var(--window-border-size));
+  margin: 0 auto;
+  background: black !important;
+  mask-mode: alpha !important;
+  mask-size: cover !important;
+  mask-repeat: no-repeat !important;
+}
+
+.platinumDesktopIconOpen {
+  z-index: 99;
+
+  .platinumDesktopIconMaskOuter {
+
+    .platinumDesktopIconMask {
+      backdrop-filter: grayscale(1) invert(1) brightness(1) !important;
+      background-blend-mode: overlay;
+
+      * {
+        opacity: 0;
+      }
+
+    }
+  }
+
+}
+
+.platinumDesktopIconActive {
+  .platinumDesktopIconMaskOuter {
+    img {
+      filter: brightness(50%);
+    }
+  }
+
+  p {
+    background: rgba(0, 0, 0, .5);
+    color: white;
+  }
+}
+
+.platinumDesktopIconActiveAndOpen {
+  z-index: 99;
+
+  .platinumDesktopIconMaskOuter {
+    background: black;
+    filter: brightness(-5);
+
+    .platinumDesktopIconMask {
+      filter: brightness(50%);
+      backdrop-filter: grayscale(1) invert(1) brightness(1) !important;
+
+      * {
+        opacity: 0;
+      }
+
+    }
+  }
+
+  p {
+    background: rgba(0, 0, 0, .5);
+    color: white;
+  }
+
+}
+
+.platinumInputDefault {
+  @include theme-halftone(appearance.$appearance-frenchBlue);
+}
+
+.platinumDesktopIconMaskThemeAzul {
+  @include theme-halftone(appearance.$appearance-azul);
+}
+
+.platinumDesktopIconMaskThemeBondi {
+  @include theme-halftone(appearance.$appearance-bondi);
+
+}
+
+.platinumDesktopIconMaskThemeCopper {
+  @include theme-halftone(appearance.$appearance-copper);
+
+}
+
+.platinumDesktopIconMaskThemeCrimson {
+  @include theme-halftone(appearance.$appearance-crimson);
+
+}
+
+.platinumDesktopIconMaskThemeEmerald {
+  @include theme-halftone(appearance.$appearance-emerald);
+
+}
+
+.platinumDesktopIconMaskThemeFrenchBlue {
+  @include theme-halftone(appearance.$appearance-frenchBlue);
+}
+
+.platinumDesktopIconMaskThemeGold {
+  @include theme-halftone(appearance.$appearance-gold);
+
+}
+
+.platinumDesktopIconMaskThemeIvy {
+  @include theme-halftone(appearance.$appearance-ivy);
+
+}
+
+.platinumDesktopIconMaskThemeLavender {
+  @include theme-halftone(appearance.$appearance-lavender);
+
+}
+
+.platinumDesktopIconMaskThemePistachio {
+  @include theme-halftone(appearance.$appearance-pistachio);
+
+}
+
+.platinumDesktopIconMaskThemeMagenta {
+  @include theme-halftone(appearance.$appearance-magenta);
+
+}
+
+.platinumDesktopIconMaskThemeNutmeg {
+  @include theme-halftone(appearance.$appearance-nutmeg);
+
+}
+
+.platinumDesktopIconMaskThemePoppy {
+  @include theme-halftone(appearance.$appearance-poppy);
+
+}
+
+.platinumDesktopIconMaskThemePlum {
+  @include theme-halftone(appearance.$appearance-plum);
+
+}
+
+.platinumDesktopIconMaskThemeRose {
+  @include theme-halftone(appearance.$appearance-rose);
+
+}
+
+.platinumDesktopIconMaskThemeSapphire {
+  @include theme-halftone(appearance.$appearance-sapphire);
+
+}
+
+.platinumDesktopIconMaskThemeSilver {
+  @include theme-halftone(appearance.$appearance-silver);
+
+}
+
+.platinumDesktopIconMaskThemeTeal {
+  @include theme-halftone(appearance.$appearance-teal);
+
+}
+
+.platinumDesktopIconMaskThemeTurquoise {
+  @include theme-halftone(appearance.$appearance-turquoise);
+}
+
+.platinumDesktopIconMaskThemeSunny {
+  @include theme-halftone(appearance.$appearance-sunny);
+}
+
+.platinumDesktopIconMaskThemeDefault {
+  @include theme-halftone(appearance.$appearance-frenchBlue);
+}

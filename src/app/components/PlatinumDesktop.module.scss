@@ -1,0 +1,106 @@
+@use "./styles/appearance";
+@use 'sass:list';
+
+.platinumDesktop {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  user-select: none;
+  user-drag: none;
+  cursor: default;
+}
+
+.platinumDesktopSelect {
+  position: absolute !important;
+  border: var(--window-border-size) dotted var(--color-black);
+}
+
+.platinumThemeDefault {
+  background-image: url("/img/wallpapers/default.png");
+  background-repeat: repeat;
+  @include appearance.appearanceManagerTheme(appearance.$appearance-lavender, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeFrenchBlue {
+  background-image: url("/img/wallpapers/french_blue_dark.png");
+  background-repeat: repeat;
+  @include appearance.appearanceManagerTheme(appearance.$appearance-frenchBlue, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeMagenta {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-magenta, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeEmerald {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-emerald, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeSilver {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-silver, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeAzul {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-azul, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeBondi {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-bondi, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeCopper {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-copper, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeCrimson {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-crimson, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeGold {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-gold, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeIvy {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-ivy, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeLavender {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-lavender, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemePistachio {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-pistachio, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeNutmeg {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-nutmeg, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemePoppy {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-poppy, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemePlum {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-plum, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeRose {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-rose, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeSapphire {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-sapphire, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeTeal {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-teal, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeTurquoise {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-turquoise, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}
+
+.platinumThemeSunny {
+  @include appearance.appearanceManagerTheme(appearance.$appearance-sunny, appearance.$appearance-system, appearance.$window-control-size, appearance.$window-border-size);
+}

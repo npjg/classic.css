@@ -1,0 +1,177 @@
+@use 'sass:list';
+
+@use "./styles/appearance";
+@use "./styles/assets";
+
+.platinumMenuWrapper {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-05), calc(var(--window-border-size) * 2) calc(var(--window-border-size) * 2) 0 0 var(--color-black);
+  font-family: var(--ui-font);
+  font-size: var(--ui-font-size);
+  z-index: 200;
+}
+
+.platinumMenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--window-border-size);
+  margin: 0;
+  list-style: none;
+  @include appearance.platinumWindowBorder;
+  min-width: calc(var(--window-control-size) * 15);
+  background-color: var(--color-02);
+
+  hr {
+    margin: calc(var(--window-control-size) / 2) calc(var(--window-border-size) * 2);
+    box-shadow: 1px 1px 0 0 var(--color-01);
+    border: var(--color-04) solid 1px;
+  }
+
+  div {
+    ul {
+      li {
+        &:hover {
+          background-color: var(--theme-color-04);
+          color: #fff;
+
+          * {
+            display: flex !important;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.platinumSubMenu {
+  position: absolute;
+  flex-direction: column;
+  padding: var(--window-border-size);
+  list-style: none;
+  @include appearance.platinumWindowBorder;
+  display: none;
+  min-width: calc(var(--window-control-size) * 15);
+  background: var(--color-02);
+  color: var(--color-black);
+  background-color: var(--color-02);
+  margin: 0 0 0 calc(var(--window-padding-size) * -1);;
+
+  hr {
+    margin: calc(var(--window-control-size) / 2) calc(var(--window-border-size) * 2);
+    box-shadow: 1px 1px 0 0 var(--color-01);
+    border: var(--color-04) solid 1px;
+  }
+
+}
+
+.platinumContextSubMenu {
+  position: absolute;
+  left: 100%;
+  flex-direction: column;
+  padding: var(--window-border-size);
+  list-style: none;
+  @include appearance.platinumWindowBorder;
+  display: none;
+  min-width: calc(var(--window-control-size) * 15);
+  background: var(--color-02);
+  color: var(--color-black);
+  background-color: var(--color-02);
+  margin: calc(var(--window-padding-size) * -4) calc(var(--window-padding-size) * -2);
+
+  hr {
+    margin: calc(var(--window-control-size) / 2) calc(var(--window-border-size) * 2);
+    box-shadow: 1px 1px 0 0 var(--color-01);
+    border: var(--color-04) solid 1px;
+  }
+
+}
+
+
+.platinumMenuItem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  float: left;
+  height: calc(100% - var(--window-padding-size)) !important;
+  padding: calc(var(--window-padding-size) / 2) var(--window-padding-size);
+  margin: 0;
+
+  &:hover {
+    background-color: var(--theme-color-04);
+    color: var(--color-white);
+
+    ul {
+      display: flex !important;
+    }
+  }
+
+
+  img {
+    width: calc(var(--window-control-size) * 1.25);
+    height: calc(var(--window-control-size) * 1.25);
+    margin-right: calc(var(--window-control-size) * .5);
+    user-select: none;
+    user-drag: none;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    float: left;
+    padding: 0;
+    margin: 0;
+
+    a {
+      cursor: default !important;
+      color: var(--color-black) !important;
+      text-decoration: none;
+    }
+  }
+
+
+}
+
+.platinumMenuItemNoImage {
+  p {
+    padding-left: calc(var(--window-control-size) * 1.75) !important;
+  }
+}
+
+.platinumMenuItemDisabled {
+  &:hover {
+    background-color: transparent !important;
+    color: var(--color-white);
+  }
+
+  p {
+    color: var(--color-05);
+  }
+
+}
+
+.platinumMenuItemChildMenuIndicator {
+  &:after {
+    content: " ";
+    position: absolute;
+    right: var(--window-control-size);
+    background-image: assets.$triangle;
+    width: 1em;
+    height: 1em;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+}
+
+.platinumMenuItemKeyboardShortcut {
+  padding-right: calc(var(--window-padding-size) / 2) !important;
+  line-height: 1.75;
+  font-size: calc(var(--ui-font-size) * .75) !important;
+}

@@ -1,0 +1,38 @@
+.platinumButton {
+  color: inherit;
+  font-size: inherit;
+  background-color: var(--color-02);
+  border: 1px solid var(--color-black);
+  border-radius: 3px;
+  margin: var(--window-control-size);
+  user-select: none;
+  font-family: var(--ui-font);
+  box-shadow: inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-05),
+  inset calc(var(--window-border-size) * -2) calc(var(--window-border-size) * -2) 0 0 var(--color-04),
+  inset calc(var(--window-border-size) * 2) calc(var(--window-border-size) * 2) 0 0 var(--color-white);
+
+  &:active {
+    background-color: var(--color-05);
+    color: var(--color-white);
+    box-shadow: inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-07),
+    inset calc(var(--window-border-size) * -2) calc(var(--window-border-size) * -2) 0 0 var(--color-06),
+    inset calc(var(--window-border-size) * 2) calc(var(--window-border-size) * 2) 0 0 var(--color-05);
+  }
+
+  &:focus {
+    outline: 1px solid var(--color-06);
+    box-shadow: 0 0 0 var(--window-border-size) var(--color-04),
+    0 0 0 calc(var(--window-border-size) * 2) var(--color-02),
+    0 0 0 calc(var(--window-border-size) * 3) var(--color-black),
+    inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-05),
+    inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-06);
+  }
+}
+
+.platinumButtonDefault {
+  outline: none;
+  box-shadow: 0 0 0 var(--window-border-size) var(--color-04),
+  0 0 0 calc(var(--window-border-size) * 2) var(--color-black),
+  inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-05),
+  inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-06);
+}

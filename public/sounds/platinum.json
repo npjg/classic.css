@@ -1,0 +1,27 @@
+{
+  "urls": [
+    "/sounds/platinum.mp3"
+  ],
+  "sprite": {
+    "PlatinumWindowCollapse": [
+      0,
+      120
+    ],
+    "PlatinumWindowExpand": [
+      2000,
+      235.01133786848084
+    ],
+    "PlatinumWindowFocus": [
+      4000,
+      30.00000000000025
+    ],
+    "PlatinumWindowMoveMoving": [
+      6000,
+      853.3333333333335
+    ],
+    "PlatinumWindowZoom": [
+      8000,
+      63.333333333332575
+    ]
+  }
+}

@@ -1,0 +1,225 @@
+@use "sass:list";
+@use "assets";
+@use "./scrollbars";
+
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$appearance-system: [#EEEEEE, #DDDDDD, #CCCCCC, #AAAAAA, #808080, #393939, #202020];
+$appearance-azul: [#AFC9FF, #93B6EA, #7599D0, #6686B7, #4A6999, #30467D, #293C6A];
+$appearance-bondi: [#C8F8E9, #67DACD, #5AB9AD, #308F91, #0D716A, #00454B, #003333];
+$appearance-copper: [#FFFFCC, #FFCC99, #FF9966, #CC6633, #993300, #660000, #220000];
+$appearance-crimson: [#FFCCCC, #FF9999, #FF6666, #CC3333, #990000, #770000, #440000];
+$appearance-emerald: [#CCFFCC, #66FF99, #33CC66, #339966, #006633, #004400, #002200];
+$appearance-frenchBlue: [#CCCCFF, #B0B0EA, #8585BC, #666699, #51517C, #333366, #26264D];
+$appearance-gold: [#FFFF99, #FFFF00, #CCCC00, #999900, #666600, #333300, #111111];
+$appearance-ivy: [#CCFFCC, #CCFFCC, #669966, #336633, #003300, #002200, #001100];
+$appearance-lavender: [#EEEEEE, #CCCCFF, #9999FF, #6666CC, #333399, #000088, #000055];
+$appearance-pistachio: [#EDFFB7, #DBFD75, #CDED6D, #B5E040, #99CC3E, #669900, #336600];
+$appearance-magenta: [#FFCCFF, #FF99FF, #CC66CC, #993399, #660066, #330033, #220000];
+$appearance-nutmeg: [#FED9B3, #ECB277, #CC9966, #996633, #663300, #451F18, #220000];
+$appearance-poppy: [#FFC05C, #FE9C02, #FE8502, #F46F19, #FE4200, #E14200, #A43000];
+$appearance-plum: [#FFCCFF, #DEA4DE, #BE80BE, #996699, #663366, #4A0A4A, #330033];
+$appearance-rose: [#FFDCDC, #EFC8C8, #CC9999, #996666, #794242, #541F1F, #350000];
+$appearance-sapphire: [#EEEEEE, #99CCFF, #6699FF, #3366FF, #0033CC, #000099, #000099];
+$appearance-silver: [#EEEEEE, #CCCCCC, #AAAAAA, #777777, #555555, #333333, #222222];
+$appearance-teal: [#B9EEEE, #99CCCC, #669999, #477979, #336666, #074C4C, #003333];
+$appearance-turquoise: [#CCFFFF, #66FFFF, #00CCFF, #0099CC, #006699, #003366, #000022];
+$appearance-sunny: [#FFFEE6, #FEF491, #F5DB61, #E6C144, #CCAB3B, #AA8F35, #887126];
+
+$color-01: list.nth($appearance-system, 1);
+$color-02: list.nth($appearance-system, 2);
+$color-03: list.nth($appearance-system, 3);
+$color-04: list.nth($appearance-system, 4);
+$color-05: list.nth($appearance-system, 5);
+$color-06: list.nth($appearance-system, 6);
+$color-07: list.nth($appearance-system, 7);
+
+$color-outline-default: list.nth($appearance-frenchBlue, 6);
+$color-select-default: list.nth($appearance-frenchBlue, 6);
+
+$color-window-border: $color-black;
+$color-window-border-outset: $color-white;
+$color-window-border-inset: $color-05;
+$color-window-frame: $color-03;
+$color-window-title: $color-black;
+$color-window-document: $color-white;
+
+$window-border-size: 1px;
+$window-control-size: 12px;
+$window-padding-size: 6px;
+$window-scrollbar-size: 20px;
+$desktop-icon-size: 48px;
+$desktop-icon-font-size: calc($desktop-icon-size / 4);
+
+$header-font: "AppleGaramond";
+$body-font: "Geneva";
+$ui-font: "Charcoal", serif;
+
+$ui-font-size: 14px;
+
+
+@mixin appearanceManagerTheme($appearance: $appearance-lavender, $system: $appearance-system, $window-control-size, $window-border-size) {
+  --color-01: #{list.nth($system, 1)};
+  --color-02: #{list.nth($system, 2)};
+  --color-03: #{list.nth($system, 3)};
+  --color-04: #{list.nth($system, 4)};
+  --color-05: #{list.nth($system, 5)};
+  --color-06: #{list.nth($system, 6)};
+  --color-07: #{list.nth($system, 7)};
+
+  --color-outline: list.nth($appearance, 6);
+  --color-select: list.nth($appearance, 6);
+
+  --theme-color-01: #{list.nth($appearance, 1)};
+  --theme-color-02: #{list.nth($appearance, 2)};
+  --theme-color-03: #{list.nth($appearance, 3)};
+  --theme-color-04: #{list.nth($appearance, 4)};
+  --theme-color-05: #{list.nth($appearance, 5)};
+  --theme-color-06: #{list.nth($appearance, 6)};
+  --theme-color-07: #{list.nth($appearance, 7)};
+
+  --window-control-size: #{$window-control-size};
+  --color-black: #{$color-black};
+  --color-white: #{$color-white};
+  --color-window-border: #{$color-black};
+  --color-window-border-outset: #{$color-white};
+  --color-window-border-inset: #{$color-05};
+  --color-window-frame: #{$color-03};
+  --color-window-title: #{$color-black};
+  --color-window-document: #{$color-white};
+  --window-border-size: #{$window-border-size};
+  --window-padding-size: #{$window-padding-size};
+  --window-scrollbar-size: #{$window-scrollbar-size};
+  --desktop-icon-size: #{$desktop-icon-size};
+  --desktop-icon-font-size: #{$desktop-icon-font-size};
+  --header-font: #{$header-font};
+  --body-font: #{$body-font};;
+  --ui-font: #{$ui-font};;
+  --ui-font-size: #{$ui-font-size};
+
+  &, & * {
+    @include scrollbars.scrollbars-themed(
+                    var(--theme-color-02),
+                    var(--theme-color-04),
+                    var(--theme-color-03),
+                    var(--theme-color-01),
+                    var(--theme-color-05),
+                    var(--theme-color-07),
+                    var(--window-border-size),
+                    var(--window-control-size),
+                    var(--window-control-size)
+    );
+    accent-color: var(--theme-color-04);
+
+
+    &:focus-visible {
+      outline-color: var(--theme-color-04);
+    }
+
+    &::marker {
+      color: var(--theme-color-04);
+    }
+
+    &:is(
+    ::-webkit-calendar-picker-indicator,
+    ::-webkit-clear-button,
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button
+  ) {
+      color: var(--theme-color-04);
+    }
+  }
+
+  @include select-color($appearance);
+  background-color: var(--theme-color-04) !important;
+}
+
+@mixin select-color($appearance) {
+  ::selection {
+    background-color: var(--theme-color-02) !important;
+  }
+}
+
+@mixin platinumWindowBoxShadow {
+  box-shadow: inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) var(--color-05),
+  inset var(--window-border-size) var(--window-border-size) $color-window-border-outset,
+  var(--window-border-size) var(--window-border-size) 0 0 black;
+}
+
+@mixin platinumBoxShadow {
+  box-shadow: inset var(--window-border-size) var(--window-border-size) var(--color-05),
+  var(--window-border-size) var(--window-border-size) $color-window-border-outset;
+}
+
+
+@mixin platinumWindowBorder {
+  border: var(--window-border-size) solid $color-window-border;
+  @include platinumWindowBoxShadow;
+}
+
+@mixin platinumWindowInnerBoxShadow {
+  box-shadow: calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) var(--color-05),
+  calc(var(--window-border-size) * 1) calc(var(--window-border-size) * 1) $color-window-border-outset;
+}
+
+@mixin platinumWindowInnerBorder {
+  border: var(--window-border-size) solid $color-window-border;
+  @include platinumWindowInnerBoxShadow;
+}
+
+@mixin platinumWindowControlBoxBorder {
+  box-shadow: inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-03),
+  inset calc((var(--window-border-size)) * -1) calc((var(--window-border-size)) * -1) 0 0 var(--color-05);
+  border: var(--window-border-size) solid black;
+}
+
+@mixin platinumWindowControlBox {
+  width: calc(var(--window-control-size)) !important;
+  height: calc(var(--window-control-size)) !important;
+  background: linear-gradient(
+                  135deg,
+                  var(--color-05),
+                  var(--color-white) 80%,
+  );
+
+  &:before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: assets.$corner-dither;
+    background-repeat: no-repeat;
+    background-size: cover;
+    mix-blend-mode: luminosity;
+    opacity: 0.25;
+    content: ' ';
+  }
+}
+
+@mixin platinumWindowControlBoxDepressable {
+  @include platinumWindowControlBox;
+  @include platinumWindowControlBoxBorder;
+  &:active {
+    box-shadow: inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-07), inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-05);
+    background: linear-gradient(
+                    135deg,
+                    var(--color-06),
+                    var(--color-05)
+    );
+
+  }
+  &:after {
+    position: relative;
+    top: calc((var(--window-control-size) * -1) - var(--window-border-size));
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: ' ';
+  }
+
+}
+
+

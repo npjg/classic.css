@@ -1,0 +1,22 @@
+@use "./styles/appearance";
+@use "sass:list";
+
+.platinumInput {
+  border: var(--window-border-size) solid black;
+  font-family: var(--ui-font);
+  box-shadow: calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-05),
+  calc(var(--window-border-size) * 1) calc(var(--window-border-size) * 1) 0 0 var(--color-04);
+  padding: var(--window-border-size);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 calc(var(--window-border-size) * 2) var(--theme-color-04), 0 0 var(--window-border-size) calc(var(--window-border-size) * 2) var(--theme-color-04);
+    outline: 0 0 0 calc(var(--window-border-size) * 2) var(--theme-color-04) !important;
+    border-radius: 2pt;
+
+  }
+}
+
+.platinumInputLabel {
+  font-family: var(--ui-font);
+  user-select: none;
+}

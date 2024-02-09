@@ -1,0 +1,115 @@
+@use "./styles/assets";
+
+.platinumDropDownSmall {
+  width: 2em !important;
+  aspect-ratio: 1 / 1 !important;
+
+  select {
+    opacity: 0 !important;
+
+  }
+
+  &:not(.select--multiple)::after {
+    height: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    border-left: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.platinumDropDown {
+  &,
+  &::before,
+  &::after,
+  & *,
+  & *::before,
+  & *::after {
+    box-sizing: border-box;
+  }
+
+  user-select: none;
+
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+  font-family: var(--ui-font);
+  box-shadow: inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-05),
+  inset calc(var(--window-border-size) * -2) calc(var(--window-border-size) * -2) 0 0 var(--color-04),
+  inset calc(var(--window-border-size) * 2) calc(var(--window-border-size) * 2) 0 0 var(--color-white);
+  margin: var(--window-control-size);
+  background-color: var(--color-02);
+  border: var(--window-border-size) solid var(--color-black);
+  border-radius: var(--window-padding-size);
+  font-size: 1em;
+  cursor: pointer;
+  line-height: 1.1;
+
+  &.select--disabled {
+    cursor: not-allowed;
+    background-color: var(--color-01);
+    background-image: linear-gradient(to top, var(--color-02), var(--color-01) 33%);
+  }
+
+  label {
+    margin-top: 2rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  select {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    padding: calc(var(--window-padding-size) / 2) 0 var(--window-padding-size) calc(var(--window-padding-size) * 1);
+    z-index: 1;
+    outline: none;
+
+    &:focus {
+      border-radius: var(--window-padding-size);
+      outline: var(--window-border-size) solid var(--color-06);
+      box-shadow: 0 0 0 var(--window-border-size) var(--color-04),
+      0 0 0 calc(var(--window-border-size) * 2) var(--color-02),
+      0 0 0 calc(var(--window-border-size) * 3) var(--color-black),
+      inset calc(var(--window-border-size) * -1) calc(var(--window-border-size) * -1) 0 0 var(--color-05),
+      inset var(--window-border-size) var(--window-border-size) 0 0 var(--color-06);
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+
+  }
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  &:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    border-left: var(--window-border-size) solid var(--color-05);
+    box-shadow: inset calc(var(--window-border-size) * 2) var(--window-border-size) 0 0 var(--color-white);
+    border-top-right-radius: var(--window-padding-size);
+    border-bottom-right-radius: var(--window-padding-size);
+    background-color: var(--theme-color-07);
+    mask-image: assets.$down-arrow;
+    mask-size: 50%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  select[multiple] {
+    padding-right: 0;
+    height: 6rem;
+  }
+}

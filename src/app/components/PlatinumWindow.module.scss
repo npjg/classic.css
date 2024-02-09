@@ -1,0 +1,278 @@
+@use "./styles/assets";
+@use "./styles/scrollbars";
+@use "./styles/appearance";
+
+.platinumWindowZoomed {
+  height: calc(100% - (var(--window-padding-size) * 2 + (var(--window-control-size) * 4))) !important;
+  width: calc(100% - (var(--window-padding-size) * 2 + (var(--window-control-size) * 2))) !important;
+  left: 1% !important;
+  top: 5% !important;
+}
+
+.platinumWindowCollapsed {
+  height: calc(var(--window-control-size) + var(--window-padding-size) / 2) !important;
+  min-height: calc(var(--window-control-size) + var(--window-padding-size) / 2) !important;
+}
+
+
+.platinumWindowInactive {
+  user-select: none;
+  z-index: unset;
+  @include scrollbars.scrollbars-inactive();
+}
+
+.platinumWindowContentsDimmed {
+  opacity: .8;
+  filter: contrast(.9);
+}
+
+.platinumWindowActive {
+  z-index: 300 !important;
+
+  .platinumWindowTitleBar {
+    user-select: none;
+
+    .platinumWindowControlBox {
+      opacity: 1 !important;
+    }
+
+    .platinumWindowTitle {
+      .platinumWindowTitleText {
+        color: black !important;
+      }
+
+      .platinumWindowTitleleft, .platinumWindowTitleright {
+        background: assets.$title-bar-center;
+
+        &:after {
+          display: block;
+          position: relative;
+          top: -100%;
+          float: right;
+          content: ' ';
+          width: var(--window-padding-size);
+          background-repeat: no-repeat;
+          height: var(--window-control-size);
+          background-size: contain;
+          background-image: assets.$title-bar-right;
+          right: calc(var(--window-padding-size) * -1);
+        }
+
+        &:before {
+          display: block;
+          position: relative;
+          content: ' ';
+          height: var(--window-control-size);
+          left: calc((var(--window-padding-size) * -1) / 2);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: assets.$title-bar-left;
+        }
+      }
+
+    }
+  }
+}
+
+
+.platinumWindowInvisible {
+  display: none !important;
+}
+
+.platinumWindowNoScroll {
+  overflow: hidden !important;
+}
+
+.platinumWindowResizing {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: calc(var(--window-padding-size) / 4) black dotted !important;
+
+  .platinumWindowResizer {
+    width: 20em !important;
+    height: 20em !important;
+    margin: -10em;
+    cursor: grabbing !important;
+  }
+
+  * {
+    opacity: 0;
+  }
+}
+
+.platinumWindowDragging {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: calc(var(--window-padding-size) / 4) black dotted !important;
+
+  * {
+    opacity: 0;
+    user-select: none;
+    user-drag: none;
+    cursor: grabbing;
+  }
+
+  .platinumWindowTitle {
+    margin: -10em;
+  }
+}
+
+.platinumWindow {
+  position: absolute;
+  padding: var(--window-padding-size);
+  z-index: 20;
+  min-width: 250px;
+  min-height: 200px;
+  max-height: 95vh;
+
+  background-color: var(--color-window-frame);
+  @include appearance.platinumWindowBorder;
+  @include scrollbars.scrollbars(var(--window-scrollbar-size));
+
+  .platinumWindowTitleBar {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    border: none;
+    box-shadow: none;
+    padding-bottom: var(--window-padding-size);
+    height: calc(var(--window-control-size) + 3px);
+    column-gap: var(--window-padding-size);
+    font-family: var(--ui-font);
+    text-align: center;
+
+    .platinumWindowIcon {
+      max-width: var(--window-control-size);
+      max-height: var(--window-control-size);
+      margin-left: var(--window-padding-size);
+      margin-right: var(--window-padding-size);
+
+      img {
+        width: 100%;
+        margin: 2px auto;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+
+    .platinumWindowTitle {
+      flex-grow: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+
+      .platinumWindowTitleText {
+        font-size: var(--ui-font-size);
+        height: 1.5em !important;
+        overflow: hidden;
+        user-select: none;
+        color: grey;
+        user-drag: none;
+        cursor: default;
+      }
+
+      .platinumWindowTitleleft, .platinumWindowTitleright {
+        width: auto;
+        height: var(--window-control-size);
+        padding: 0;
+        margin: calc(var(--window-padding-size) / 2) var(--window-padding-size);
+        flex-grow: 1;
+
+      }
+
+
+      span {
+        margin: 0;
+        padding: 0;
+        font-size: var(--window-control-size);
+        background: var(--color-window-frame) !important;
+      }
+    }
+
+    .platinumWindowControlBox {
+      @include appearance.platinumBoxShadow;
+      opacity: 0;
+      padding: var(--window-border-size) 0 var(--window-border-size) var(--window-border-size);
+    }
+
+    .platinumWindowCollapseBox, .platinumWindowZoomBox {
+      @include appearance.platinumWindowControlBoxDepressable;
+    }
+
+    .platinumWindowCollapseBox {
+
+      &:after {
+        background-image: assets.$collapse;
+        background-position: top left;
+        opacity: .65;
+      }
+    }
+
+    .platinumWindowZoomBox {
+      &:after {
+        background-image: assets.$zoom;
+        background-position: top left;
+        opacity: .65;
+      }
+    }
+
+    .platinumWindowCloseBox {
+      @include appearance.platinumWindowControlBoxDepressable;
+    }
+
+  }
+
+  .platinumWindowResizer {
+    position: absolute;
+    height: calc(var(--window-padding-size) * 2 + var(--window-border-size) * 4);
+    width: calc(var(--window-padding-size) * 2 + var(--window-border-size) * 4);
+    bottom: calc(var(--window-padding-size) + var(--window-border-size) * 2);
+    right: calc(var(--window-padding-size) + var(--window-border-size) * 2);
+    background-image: assets.$resizer;
+    background-size: var(--window-control-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    user-select: none;
+    cursor: grab;
+    background-color: var(--color-03);
+  }
+
+  .platinumWindowContents {
+    position: relative;
+    background-color: var(--color-window-document);
+    @include appearance.platinumWindowInnerBorder;
+    height: calc(100% - (var(--window-control-size) * 2));
+    overflow: scroll !important;
+    display: block;
+  }
+
+}
+
+.platinumWindowContentsModal {
+  background-color: var(--color-window-frame) !important;
+  margin: 0 !important;
+  padding: calc(var(--window-padding-size) / 4) !important;
+  width: calc(100% - var(--window-padding-size) / 2);
+  height: calc(100% - (var(--window-control-size) * 2) - var(--window-padding-size));
+  @include appearance.platinumWindowBorder;
+  border: none !important;
+  border-top: calc(var(--window-padding-size) / 4) solid var(--color-black) !important;
+}
+
+.platinumWindowContentsModalInner {
+  padding: var(--window-padding-size);
+}
+
+.platinumWindowContentsInner {
+  display: block;
+  height: calc(100% - var(--window-padding-size) * 4);
+}
+
+.platinumWindowModal {
+  margin: 0 !important;
+  padding: 0;
+}
+
+.platinumWindowTitleBarModal {
+  padding: var(--window-padding-size) calc(var(--window-padding-size) / 2) !important;
+}
